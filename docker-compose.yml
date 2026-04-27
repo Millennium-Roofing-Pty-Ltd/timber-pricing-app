@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: timber-pricing-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: timber_pricing_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - timber_pricing_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  timber_pricing_postgres_data:
